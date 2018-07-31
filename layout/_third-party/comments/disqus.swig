@@ -1,7 +1,17 @@
 {% if theme.disqus.enable %}
 
   {% if theme.disqus.count %}
-    <script id="dsq-count-scr" src="https://{{theme.disqus.shortname}}.disqus.com/count.js" async></script>
+    <script>
+      window.addEventListener('load', function(){
+        setTimeout(function(){
+          var $script = document.createElement('script')
+          $script.setAttribute('src', 'https://{{theme.disqus.shortname}}.disqus.com/count.js')
+          $script.setAttribute('id', 'dsq-count-scr')
+          document.body.appendChild($script)
+        }, 200)
+      })
+      // <script id="dsq-count-scr" src="https://{{theme.disqus.shortname}}.disqus.com/count.js" async></script>
+    </script>    
   {% endif %}
 
   {% if page.comments %}
@@ -37,7 +47,11 @@
           }
         });
       {% else %}
-        loadComments();
+      window.addEventListener('load', function(){
+        setTimeout(function(){
+          loadComments();  
+        }, 200)
+      })        
       {% endif %}
     </script>
   {% endif %}
