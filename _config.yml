@@ -126,6 +126,7 @@ menu:
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
   about: /about/ || user
+  留言板: /board || comment
 
 # Enable/Disable menu icons / item badges.
 menu_settings:
